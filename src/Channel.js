@@ -5,7 +5,15 @@ class Channel extends Model {
 }
 
 Channel.init({
-    name: DataTypes.STRING
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    subscribers: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0
+    }
 }, {
     sequelize,
 	timestamps: false

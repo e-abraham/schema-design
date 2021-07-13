@@ -10,7 +10,11 @@ describe("Youtube Database", () => {
 
     test('can create a channel', async() => {
 		const testChannel = await Channel.create({name : 'The JS Wizard'})
-		expect(testChannel.name).toBe('The JS Wizard')
+        const codeCentral = await Channel.create({name : 'Code Central', subscribers: 3859})
+        const channel = await Channel.findByPk(2)
+        console.log(testChannel.dataValues)
+		expect(channel).toHaveProperty("subscribers", 3859)
+        expect(testChannel).toBeInstanceOf(Channel)
 	})
     
     test('can create a playlist', async() => {
